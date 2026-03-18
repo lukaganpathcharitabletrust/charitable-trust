@@ -6,6 +6,7 @@ export interface Project {
   shortDescription: string;
   description: string;
   image: string;
+  images?: string[];
   progress: number;
   raised: string;
   impact: string;
@@ -52,8 +53,8 @@ All these dignitaries gave their valuable time to make the event more meaningful
       '₹6,300 worth groceries distributed',
       'Community leaders participated',
     ],
-    image:
-      'https://images.pexels.com/photos/2962875/pexels-photo-2962875.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: '/resources/pimple1.jpeg',
+    images: ['/resources/pimple1.jpeg', '/resources/pimple2.jpeg', '/resources/pimple3.jpeg'],
     progress: 100,
     raised: '₹ 6,300',
     impact: '5 families',

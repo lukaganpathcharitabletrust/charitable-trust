@@ -1,5 +1,3 @@
-// src/data/blogs.ts
-
 export interface BlogPost {
   id: number;
   title: string;
@@ -45,7 +43,7 @@ Beneficiary Women:
 
 All these dignitaries gave their valuable time to make the event more meaningful and memorable.
     `,
-    image: 'https://images.pexels.com/photos/1797393/pexels-photo-1797393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: '/resources/pimple1.jpeg',
     category: 'Projects',
     tags: ['Grocery Distribution', 'Economical Development', 'Health'],
   },

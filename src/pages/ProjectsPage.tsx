@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Check, Filter, X } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Filter, X } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import { projects } from '../data/projects';
@@ -10,7 +10,23 @@ const ProjectsPage: React.FC = () => {
   const [selectedLocation, setSelectedLocation] = useState('All');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
-  
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  const openProject = (project: any) => {
+    setSelectedProject(project);
+    setCarouselIndex(0);
+  };
+
+  // Auto-advance carousel every 15 seconds; resets whenever carouselIndex changes
+  useEffect(() => {
+    if (!selectedProject?.images || selectedProject.images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCarouselIndex(i => (i + 1) % selectedProject.images.length);
+    }, 15000);
+    return () => clearInterval(timer);
+  }, [selectedProject, carouselIndex]);
+
+
   const location = useLocation();
 
   useEffect(() => {
@@ -18,7 +34,7 @@ const ProjectsPage: React.FC = () => {
       const projectToOpen = projects.find(p => p.id === location.state.selectedProjectId);
       if (projectToOpen) {
         setSelectedProject(projectToOpen);
-        window.scrollTo(0, 0); 
+        window.scrollTo(0, 0);
       }
     }
   }, [location]);
@@ -67,7 +83,7 @@ const ProjectsPage: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-8">
             {/* Filters Sidebar */}
             <div className={`md:w-1/4 bg-gray-50 p-6 rounded-lg ${isFilterOpen ? 'block' : 'hidden md:block'}`}>
-              
+
               {/* Categories - Using Constant */}
               <div className="mb-8">
                 <h3 className="text-lg font-bold mb-4 text-gray-900">Categories</h3>
@@ -75,11 +91,10 @@ const ProjectsPage: React.FC = () => {
                   {PROJECT_CATEGORIES.map((category) => (
                     <button
                       key={category}
-                      className={`flex items-center w-full text-left px-3 py-2 rounded-md transition-colors ${
-                        selectedCategory === category
-                          ? 'bg-teal-100 text-teal-800'
-                          : 'hover:bg-gray-100 text-gray-700'
-                      }`}
+                      className={`flex items-center w-full text-left px-3 py-2 rounded-md transition-colors ${selectedCategory === category
+                        ? 'bg-teal-100 text-teal-800'
+                        : 'hover:bg-gray-100 text-gray-700'
+                        }`}
                       onClick={() => setSelectedCategory(category)}
                     >
                       {selectedCategory === category && <Check size={16} className="mr-2 text-teal-600" />}
@@ -96,11 +111,10 @@ const ProjectsPage: React.FC = () => {
                   {PROJECT_LOCATIONS.map((loc) => (
                     <button
                       key={loc}
-                      className={`flex items-center w-full text-left px-3 py-2 rounded-md transition-colors ${
-                        selectedLocation === loc
-                          ? 'bg-teal-100 text-teal-800'
-                          : 'hover:bg-gray-100 text-gray-700'
-                      }`}
+                      className={`flex items-center w-full text-left px-3 py-2 rounded-md transition-colors ${selectedLocation === loc
+                        ? 'bg-teal-100 text-teal-800'
+                        : 'hover:bg-gray-100 text-gray-700'
+                        }`}
                       onClick={() => setSelectedLocation(loc)}
                     >
                       {selectedLocation === loc && <Check size={16} className="mr-2 text-teal-600" />}
@@ -120,7 +134,7 @@ const ProjectsPage: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProjects.map((project) => (
                   <div key={project.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:translate-y-[-5px] transition">
-                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover object-top" />
                     <div className="p-6">
                       <div className="flex flex-wrap gap-2 mb-3">
                         <span className="text-xs font-semibold px-2 py-1 rounded-full bg-teal-100 text-teal-800">{project.category}</span>
@@ -128,7 +142,7 @@ const ProjectsPage: React.FC = () => {
                       </div>
                       <h3 className="text-xl font-bold mb-2 text-gray-900">{project.title}</h3>
                       <p className="text-gray-600 mb-4 line-clamp-3">{project.description}</p>
-                      
+
                       {/* Progress Bar */}
                       <div className="mb-4">
                         <div className="flex justify-between text-sm mb-1">
@@ -147,7 +161,7 @@ const ProjectsPage: React.FC = () => {
                         <p className="text-sm text-gray-600">
                           <span className="font-medium">Impact:</span> {project.impact}
                         </p>
-                        <Button onClick={() => setSelectedProject(project)}>Learn More</Button>
+                        <Button onClick={() => openProject(project)}>Learn More</Button>
                       </div>
                     </div>
                   </div>
@@ -165,7 +179,54 @@ const ProjectsPage: React.FC = () => {
             <button onClick={() => setSelectedProject(null)} className="absolute top-3 right-4 text-gray-600 hover:text-gray-900">
               <X size={24} />
             </button>
-            <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-72 object-cover rounded-xl mb-4" />
+            {/* Image Carousel */}
+            {selectedProject.images && selectedProject.images.length > 1 ? (
+              <div className="relative w-full h-72 rounded-xl mb-4 overflow-hidden">
+                {/* Keyframe injected once */}
+                <style>{`
+                  @keyframes carouselFade {
+                    from { opacity: 0; transform: scale(1.04); }
+                    to   { opacity: 1; transform: scale(1); }
+                  }
+                  .carousel-img {
+                    animation: carouselFade 0.7s cubic-bezier(0.4,0,0.2,1) both;
+                  }
+                `}</style>
+                <img
+                  key={carouselIndex}
+                  src={selectedProject.images[carouselIndex]}
+                  alt={`${selectedProject.title} - ${carouselIndex + 1}`}
+                  className="carousel-img w-full h-full object-cover object-top"
+                />
+                {/* Prev */}
+                <button
+                  onClick={() => setCarouselIndex(i => (i - 1 + selectedProject.images.length) % selectedProject.images.length)}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 transition"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                {/* Next */}
+                <button
+                  onClick={() => setCarouselIndex(i => (i + 1) % selectedProject.images.length)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 transition"
+                >
+                  <ChevronRight size={20} />
+                </button>
+                {/* Dots */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                  {selectedProject.images.map((_: string, idx: number) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCarouselIndex(idx)}
+                      className={`w-2.5 h-2.5 rounded-full transition-all ${idx === carouselIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'
+                        }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-72 object-cover object-top rounded-xl mb-4" />
+            )}
             <h2 className="text-3xl font-bold mb-2">{selectedProject.title}</h2>
             <p className="text-sm text-gray-500 mb-4">{selectedProject.category} • {selectedProject.location}</p>
             <div className="text-gray-700 whitespace-pre-line leading-relaxed mb-4">{selectedProject.description}</div>

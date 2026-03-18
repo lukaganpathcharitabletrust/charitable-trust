@@ -17,7 +17,7 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: 'Dr. Emily Chen',
+    name: 'Rajshree Badgujar',
     role: 'Executive Director',
     image: 'https://images.pexels.com/photos/5615665/pexels-photo-5615665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     bio: 'With over 15 years of experience in humanitarian work, Emily leads our organization with passion and expertise.',
@@ -29,7 +29,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 2,
-    name: 'James Wilson',
+    name: 'Sudam Badgujar',
     role: 'Operations Director',
     image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     bio: 'James oversees all our projects and ensures they are executed efficiently and effectively.',
@@ -40,7 +40,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 3,
-    name: 'Maria Rodriguez',
+    name: 'Suraj Badgujar',
     role: 'Community Outreach Manager',
     image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     bio: 'Maria builds and maintains relationships with the communities we serve, ensuring our work addresses their needs.',

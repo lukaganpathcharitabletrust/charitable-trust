@@ -26,7 +26,7 @@ const ProjectsOverview: React.FC<ProjectsOverviewProps> = () => {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-48 object-cover"
+            className="w-full h-48 object-cover object-top"
           />
 
           <div className="p-6">

@@ -84,7 +84,7 @@ const BlogPage: React.FC = () => {
                     <img 
                       src={filteredPosts[0].image} 
                       alt={filteredPosts[0].title} 
-                      className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-96 object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-6 md:p-8">
@@ -112,7 +112,7 @@ const BlogPage: React.FC = () => {
                 {filteredPosts.slice(1).map((post) => (
                   <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:translate-y-[-5px]">
                     <Link to={`/blog/${post.id}`}>
-                      <img src={post.image} alt={post.title} className="w-full h-56 object-cover" />
+                      <img src={post.image} alt={post.title} className="w-full h-56 object-cover object-top" />
                     </Link>
                     <div className="p-6">
                       <div className="flex items-center mb-3">

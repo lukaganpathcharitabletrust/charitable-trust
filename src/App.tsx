@@ -10,10 +10,12 @@ import BlogPage from './pages/BlogPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
 import TermsOfService from './pages/TermsOfServicePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-neutral-50">
         <Navbar />
         <main className="flex-grow">
