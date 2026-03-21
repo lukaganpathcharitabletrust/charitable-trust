@@ -6,7 +6,7 @@ interface TeamMember {
   name: string;
   role: string;
   image: string;
-  bio: string;
+  // bio: string;
   social: {
     facebook?: string;
     twitter?: string;
@@ -19,34 +19,34 @@ const teamMembers: TeamMember[] = [
     id: 1,
     name: 'Rajshree Badgujar',
     role: 'Executive Director',
-    image: 'https://images.pexels.com/photos/5615665/pexels-photo-5615665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    bio: 'With over 15 years of experience in humanitarian work, Emily leads our organization with passion and expertise.',
+    image: 'public/resources/rajshree.png',
+    // bio: 'With over 15 years of experience in humanitarian work, Emily leads our organization with passion and expertise.',
     social: {
-      facebook: '#',
-      twitter: '#',
-      linkedin: '#',
+      // facebook: '#',
+      // twitter: '#',
+      // linkedin: '#',
     },
   },
   {
     id: 2,
     name: 'Sudam Badgujar',
     role: 'Operations Director',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    bio: 'James oversees all our projects and ensures they are executed efficiently and effectively.',
+    image: '/resources/sudam.png',
+    // bio: 'James oversees all our projects and ensures they are executed efficiently and effectively.',
     social: {
-      twitter: '#',
-      linkedin: '#',
+      // twitter: '#',
+      // linkedin: '#',
     },
   },
   {
     id: 3,
     name: 'Suraj Badgujar',
     role: 'Community Outreach Manager',
-    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    bio: 'Maria builds and maintains relationships with the communities we serve, ensuring our work addresses their needs.',
+    image: '/resources/suraj.jpeg',
+    // bio: 'Maria builds and maintains relationships with the communities we serve, ensuring our work addresses their needs.',
     social: {
-      facebook: '#',
-      linkedin: '#',
+      // facebook: '#',
+      // linkedin: '#',
     },
   },
   {
@@ -54,44 +54,44 @@ const teamMembers: TeamMember[] = [
     name: 'Himmatrao Badgujar',
     role: 'Finance Director',
     image: '/resources/aaba.jpg',
-    bio: 'LOREm',
+    // bio: 'LOREm',
     social: {
-      facebook: undefined,
-      twitter: undefined,
-      linkedin: undefined
+      // facebook: undefined,
+      // twitter: undefined,
+      // linkedin: undefined
     }
   },
   {
     id: 5,
-    name: 'David Okafor',
+    name: 'Suresh Mahale',
     role: 'Finance Director',
-    image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    bio: 'David manages our financial resources with transparency and integrity to maximize our impact.',
+    image: '/resources/sureshMahale.png',
+    // bio: 'David manages our financial resources with transparency and integrity to maximize our impact.',
     social: {
-      twitter: '#',
-      linkedin: '#',
+      // twitter: '#',
+      // linkedin: '#',
     },
   },
   {
     id: 6,
-    name: 'David Okafor',
+    name: 'Vikas Badgujar',
     role: 'Finance Director',
-    image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    bio: 'David manages our financial resources with transparency and integrity to maximize our impact.',
+    image: '/resources/VikasPundlik.png',
+    // bio: 'David manages our financial resources with transparency and integrity to maximize our impact.',
     social: {
-      twitter: '#',
-      linkedin: '#',
+      // twitter: '#',
+      // linkedin: '#',
     },
   },
   {
     id: 7,
-    name: 'David Okafor',
+    name: 'Pravin Badgujar',
     role: 'Finance Director',
-    image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    bio: 'David manages our financial resources with transparency and integrity to maximize our impact.',
+    image: '/resources/pravinBadgujar.jpeg',
+    // bio: 'David manages our financial resources with transparency and integrity to maximize our impact.',
     social: {
-      twitter: '#',
-      linkedin: '#',
+      // twitter: '#',
+      // linkedin: '#',
     },
   },
 ];
@@ -115,12 +115,13 @@ const TeamOverview: React.FC = () => {
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full h-64 object-cover object-center"
+                className="w-full h-64 object-cover"
+                style={[5, 6, 7].includes(member.id) ? { objectPosition: 'center center' } : undefined}
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
                 <p className="text-teal-600 font-medium mb-4">{member.role}</p>
-                <p className="text-gray-600 mb-4">{member.bio}</p>
+                {/* <p className="text-gray-600 mb-4">{member.bio}</p> */}
 
                 <div className="flex space-x-4">
                   {member.social.facebook && (

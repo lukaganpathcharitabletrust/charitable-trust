@@ -8,10 +8,10 @@ import Button from '../components/ui/Button';
 import HeroSection from '../components/sections/HeroSection';
 import ImpactStats from '../components/sections/ImpactStats';
 import ProjectsOverview from '../components/sections/ProjectsOverview';
-import TestimonialsSection from '../components/sections/TestimonialsSection';
+// import TestimonialsSection from '../components/sections/TestimonialsSection';
 import MissionSection from '../components/sections/MissionSection';
 import TeamOverview from '../components/sections/TeamOverview';
-import NewsSection from '../components/sections/NewsSection';
+// import NewsSection from '../components/sections/NewsSection';
 import DonateSection from '../components/sections/DonateSection';
 // import ProjectModal from '../components/ProjectModal'; // adjust path if needed
 
@@ -62,9 +62,9 @@ const HomePage: React.FC = () => {
         />
       )} */}
 
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <TeamOverview />
-      <NewsSection />
+      {/* <NewsSection /> */}
       <DonateSection />
     </div>
   );
