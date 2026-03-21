@@ -18,8 +18,8 @@ const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: 'Rajshree Badgujar',
-    role: 'Executive Director',
-    image: 'public/resources/rajshree.png',
+    role: 'President',
+    image: '/resources/rajshree.png',
     // bio: 'With over 15 years of experience in humanitarian work, Emily leads our organization with passion and expertise.',
     social: {
       // facebook: '#',
@@ -30,7 +30,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 2,
     name: 'Sudam Badgujar',
-    role: 'Operations Director',
+    role: 'Treasurer',
     image: '/resources/sudam.png',
     // bio: 'James oversees all our projects and ensures they are executed efficiently and effectively.',
     social: {
@@ -41,7 +41,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 3,
     name: 'Suraj Badgujar',
-    role: 'Community Outreach Manager',
+    role: 'Secretary',
     image: '/resources/suraj.jpeg',
     // bio: 'Maria builds and maintains relationships with the communities we serve, ensuring our work addresses their needs.',
     social: {
@@ -52,7 +52,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 4,
     name: 'Himmatrao Badgujar',
-    role: 'Finance Director',
+    role: 'Member',
     image: '/resources/aaba.jpg',
     // bio: 'LOREm',
     social: {
@@ -64,7 +64,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 5,
     name: 'Suresh Mahale',
-    role: 'Finance Director',
+    role: 'Member',
     image: '/resources/sureshMahale.png',
     // bio: 'David manages our financial resources with transparency and integrity to maximize our impact.',
     social: {
@@ -75,7 +75,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 6,
     name: 'Vikas Badgujar',
-    role: 'Finance Director',
+    role: 'Memeber',
     image: '/resources/VikasPundlik.png',
     // bio: 'David manages our financial resources with transparency and integrity to maximize our impact.',
     social: {
@@ -86,7 +86,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 7,
     name: 'Pravin Badgujar',
-    role: 'Finance Director',
+    role: 'Member',
     image: '/resources/pravinBadgujar.jpeg',
     // bio: 'David manages our financial resources with transparency and integrity to maximize our impact.',
     social: {
@@ -115,8 +115,7 @@ const TeamOverview: React.FC = () => {
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full h-64 object-cover"
-                style={[5, 6, 7].includes(member.id) ? { objectPosition: 'center center' } : undefined}
+                className="w-full h-64 object-cover object-center"
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
