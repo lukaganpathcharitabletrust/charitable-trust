@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Mail, MapPin, Phone, MessageSquare, CheckCircle } from 'lucide-react';
 import Button from '../components/ui/Button';
 import { SocialIcon } from 'react-social-icons';
@@ -35,6 +36,12 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full">
+      <Helmet>
+        <title>Contact Us | Kai Luka Ganpathsheth Badgujar Charitable Trust</title>
+        <meta name="description" content="Get in touch with Kai Luka Ganpathsheth Badgujar Charitable Trust. Contact us for donation inquiries, volunteering, partnerships, or general questions. Located in Dhanori, Pune, Maharashtra." />
+        <link rel="canonical" href="https://lukaganpathcharitabletrust.in/contact" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 z-0">

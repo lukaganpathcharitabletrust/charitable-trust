@@ -379,6 +379,7 @@
 //This was the initial code for reference 
 
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { CheckCircle } from 'lucide-react';
 import Button from '../components/ui/Button';
 
@@ -428,6 +429,12 @@ const DonatePage: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full">
+      <Helmet>
+        <title>Donate | Kai Luka Ganpathsheth Badgujar Charitable Trust</title>
+        <meta name="description" content="Support the Kai Luka Ganpathsheth Badgujar Charitable Trust. Donate via UPI or bank transfer to fund education, healthcare, and community welfare. Tax-deductible under 80G." />
+        <link rel="canonical" href="https://lukaganpathcharitabletrust.in/donate" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative py-16 md:py-24">
         <div className="absolute inset-0 z-0">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Check, ChevronLeft, ChevronRight, Filter, X } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import Button from '../components/ui/Button';
@@ -47,6 +48,11 @@ const ProjectsPage: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full">
+      <Helmet>
+        <title>Our Projects | Kai Luka Ganpathsheth Badgujar Charitable Trust</title>
+        <meta name="description" content="Explore the charitable projects and social initiatives by Kai Luka Ganpathsheth Badgujar Charitable Trust — from education and healthcare to community empowerment across Maharashtra." />
+        <link rel="canonical" href="https://lukaganpathcharitabletrust.in/projects" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 z-0">

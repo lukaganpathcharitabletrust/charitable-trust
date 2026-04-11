@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, Search, Tag, User } from 'lucide-react';
 import Button from '../components/ui/Button';
@@ -23,6 +24,11 @@ const BlogPage: React.FC = () => {
   
   return (
     <div className="flex flex-col w-full">
+      <Helmet>
+        <title>News & Updates | Kai Luka Ganpathsheth Badgujar Charitable Trust</title>
+        <meta name="description" content="Stay updated with the latest news, stories, and initiatives from Kai Luka Ganpathsheth Badgujar Charitable Trust. Read about our projects and community impact." />
+        <link rel="canonical" href="https://lukaganpathcharitabletrust.in/blog" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 z-0">

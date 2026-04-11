@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Award, Calendar, Eye, Heart, Leaf, Shield, Users } from 'lucide-react';
 import TeamOverview from '../components/sections/TeamOverview';
 
@@ -64,6 +65,11 @@ const milestones: Milestone[] = [
 const AboutPage: React.FC = () => {
   return (
     <div className="flex flex-col w-full">
+      <Helmet>
+        <title>About Us | Kai Luka Ganpathsheth Badgujar Charitable Trust</title>
+        <meta name="description" content="Learn about the mission, values, team, and history of Kai Luka Ganpathsheth Badgujar Charitable Trust. A registered NGO dedicated to social welfare in India." />
+        <link rel="canonical" href="https://lukaganpathcharitabletrust.in/about" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 z-0">

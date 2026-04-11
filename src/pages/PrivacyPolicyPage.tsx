@@ -1,8 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const PrivacyPolicy: React.FC = () => {
   return (
     <div className="min-h-screen bg-teal-50 py-16 px-4">
+      <Helmet>
+        <title>Privacy Policy | Kai Luka Ganpathsheth Badgujar Charitable Trust</title>
+        <meta name="description" content="Read the privacy policy of Kai Luka Ganpathsheth Badgujar Charitable Trust. We are committed to protecting your personal information." />
+        <link rel="canonical" href="https://lukaganpathcharitabletrust.in/privacy" />
+      </Helmet>
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-serif font-bold text-gray-900 mb-8">Privacy Policy</h1>
 

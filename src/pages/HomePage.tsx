@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -28,6 +29,11 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full">
+      <Helmet>
+        <title>Kai Luka Ganpathsheth Badgujar Charitable Trust | Home</title>
+        <meta name="description" content="Welcome to the official website of Kai Luka Ganpathsheth Badgujar Charitable Trust. Dedicated to education, healthcare, and community welfare in Maharashtra, India." />
+        <link rel="canonical" href="https://lukaganpathcharitabletrust.in/" />
+      </Helmet>
       <HeroSection />
       <MissionSection />
       <ImpactStats />
